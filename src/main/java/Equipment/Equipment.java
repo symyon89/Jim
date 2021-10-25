@@ -1,9 +1,11 @@
+package Equipment;
+
 import java.time.LocalDate;
 
 
 public abstract class Equipment {
    private String name;
-   private String type;
+   protected String type;
    private LocalDate dateLastCheck;
    private int maxUsage;
    private LocalDate dateLastClean;
@@ -23,7 +25,7 @@ public abstract class Equipment {
     }
 
 
-    public abstract void setType(String type);
+    public abstract void setType();
 
     public String getName() {
         return name;

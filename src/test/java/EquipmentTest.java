@@ -1,4 +1,5 @@
 
+import Equipment.Equipment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ class EquipmentTest {
     public void init() {
         equipmentTest = new Equipment() {
             @Override
-            public void setType(String type) {
+            public void setType() {
             }
         };
     }
