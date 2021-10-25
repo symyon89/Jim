@@ -1,6 +1,7 @@
 package Equipment;
 
-public class Strenght extends Equipment{
+public class StrenghtEquipment extends Equipment{
+
     @Override
     public void setType() {
         this.type = "Strenght";
