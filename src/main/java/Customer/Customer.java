@@ -6,14 +6,8 @@ public class Customer{
     private long cnp;
     private String mail;
     private long phoneNumber;
+    private int balance; //credits
 
-    public Customer(String firstname, String lasttname, long cnp, String mail, long phoneNumber) {
-        this.firstname = firstname;
-        this.lasttname = lasttname;
-        this.cnp = cnp;
-        this.mail = mail;
-        this.phoneNumber = phoneNumber;
-    }
 
     public String getFirstname() {
         return firstname;
@@ -33,5 +27,29 @@ public class Customer{
 
     public long getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public void setLasttname(String lasttname) {
+        this.lasttname = lasttname;
+    }
+
+    public void setCnp(long cnp) {
+        this.cnp = cnp;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }
