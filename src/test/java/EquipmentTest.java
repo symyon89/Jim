@@ -1,5 +1,5 @@
 
-import Equipment.Equipment;
+import equipment.Equipment;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,7 @@ class EquipmentTest {
     public void init() {
         equipmentTest = new Equipment() {
             @Override
-            public void setGroup() {
+            public void defineGroupField() {
             }
         };
     }
