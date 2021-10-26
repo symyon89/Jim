@@ -22,7 +22,7 @@ public class Menu {
         System.out.println("***Menu***");
         System.out.println("1.Insert products in app");
         System.out.println("2.Show Products");
-        System.out.println("2.Exit");
+        System.out.println("3.Exit");
         System.out.println("Choose option");
     }
     private void selectMenu(int opt){
