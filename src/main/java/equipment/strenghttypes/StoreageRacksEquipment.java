@@ -4,7 +4,8 @@ import equipment.groups.StrenghtEquipment;
 
 public class StoreageRacksEquipment extends StrenghtEquipment {
 
-    public void setType(){
+    @Override
+    public void defineTypeField(){
         this.type = "Storeage Racks";
     }
 

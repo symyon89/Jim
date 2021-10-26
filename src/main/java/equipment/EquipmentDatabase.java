@@ -15,6 +15,7 @@ import equipment.vibrationtrainingtypes.Vyper2Equipment;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -99,7 +100,7 @@ public class EquipmentDatabase {
         equipment.setName(name);
         equipment.defineGroupField();
         equipment.defineTypeField();
-        equipment.setDateLastCheck(LocalDate.now());
+        equipment.setDateLastClean(LocalDate.now());
         System.out.println("Introdu numarul de zile pana la curatare:");
         int days = scannerNumber.nextInt();
         equipment.setCleaningInterval(days);
@@ -229,6 +230,22 @@ public class EquipmentDatabase {
         }
         if (newEquipment != null) {
             addEquipmentToList(newEquipment);
+        }
+    }
+    public void showEquipments(){
+        Iterator<Equipment> showEquipments = equipmentDatabase.iterator();
+        while (showEquipments.hasNext()){
+            Equipment temp = showEquipments.next();
+            System.out.println("");
+            System.out.print("Nume : " + temp.getName());
+            System.out.print(" Group : " + temp.getGroup());
+            System.out.print(" Type : " + temp.getType());
+            System.out.print(" Data ultima verificare : " + temp.getDateLastClean());
+            System.out.print(" Interval curatare : " + temp.getCleaningInterval());
+            System.out.print(" Data ultima revizie : " + temp.getDateLastCheck());
+            System.out.print(" Interval revizie : " + temp.getMaxUsage());
+            System.out.println("");
+
         }
     }
 }
