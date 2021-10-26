@@ -26,7 +26,7 @@ public abstract class Equipment {
     }
 
 
-    public abstract void setType();
+    public abstract void setGroup();
 
     public String getName() {
         return name;
@@ -72,15 +72,7 @@ public abstract class Equipment {
         return group;
     }
 
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
     public String getType() {
         return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

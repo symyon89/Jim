@@ -4,7 +4,7 @@ import Equipment.Equipment;
 
 public class FlooringEquipment extends Equipment {
     @Override
-    public void setType() {
+    public void setGroup() {
         this.group = "Flooring";
     }
 }

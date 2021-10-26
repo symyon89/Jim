@@ -5,7 +5,7 @@ import Equipment.Equipment;
 public class CardioEquipment extends Equipment {
 
     @Override
-    public void setType() {
-       this.group = "Cardio";
+    public void setGroup() {
+        this.group = "Cardio";
     }
 }

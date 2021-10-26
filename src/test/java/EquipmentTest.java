@@ -16,7 +16,7 @@ class EquipmentTest {
     public void init() {
         equipmentTest = new Equipment() {
             @Override
-            public void setType() {
+            public void setGroup() {
             }
         };
     }
