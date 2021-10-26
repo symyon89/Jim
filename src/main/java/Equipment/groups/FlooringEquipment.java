@@ -5,6 +5,6 @@ import Equipment.Equipment;
 public class FlooringEquipment extends Equipment {
     @Override
     public void setType() {
-        this.type = "Flooring";
+        this.group = "Flooring";
     }
 }

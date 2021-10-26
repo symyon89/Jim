@@ -6,6 +6,6 @@ public class GroupTrainingEquipment extends Equipment {
 
     @Override
     public void setType() {
-        this.type = "Group Training";
+        this.group = "Group Training";
     }
 }

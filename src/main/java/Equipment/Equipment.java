@@ -5,6 +5,7 @@ import java.time.LocalDate;
 
 public abstract class Equipment {
    private String name;
+   protected String group;
    protected String type;
    private LocalDate dateLastCheck;
    private int maxUsage;
@@ -65,5 +66,21 @@ public abstract class Equipment {
 
     public void setCleaningInterval(int cleaningInterval) {
         this.cleaningInterval = cleaningInterval;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

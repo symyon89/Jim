@@ -6,6 +6,6 @@ public class StrenghtEquipment extends Equipment {
 
     @Override
     public void setType() {
-        this.type = "Strenght";
+        this.group = "Strenght";
     }
 }
