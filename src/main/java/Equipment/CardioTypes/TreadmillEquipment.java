@@ -1,4 +1,4 @@
-package Equipment.types;
+package Equipment.CardioTypes;
 
 import Equipment.groups.CardioEquipment;
 
