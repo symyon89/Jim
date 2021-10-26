@@ -2,7 +2,7 @@ package equipment.groups;
 
 import equipment.Equipment;
 
-public class VibrationTrainingEquipment extends Equipment {
+public abstract class VibrationTrainingEquipment extends Equipment {
 
     @Override
     public void defineGroupField() {

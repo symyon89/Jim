@@ -18,6 +18,9 @@ class EquipmentTest {
             @Override
             public void defineGroupField() {
             }
+            @Override
+            public void defineTypeField() {
+            }
         };
     }
 

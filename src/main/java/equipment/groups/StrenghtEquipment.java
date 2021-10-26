@@ -2,7 +2,7 @@ package equipment.groups;
 
 import equipment.Equipment;
 
-public class StrenghtEquipment extends Equipment {
+public abstract class StrenghtEquipment extends Equipment {
 
     @Override
     public void defineGroupField() {

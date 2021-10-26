@@ -25,7 +25,7 @@ public abstract class Equipment {
         return now.equals(dateToRepair) || now.isAfter(dateToRepair);
     }
 
-
+    public abstract void defineTypeField();
     public abstract void defineGroupField();
 
     public String getName() {

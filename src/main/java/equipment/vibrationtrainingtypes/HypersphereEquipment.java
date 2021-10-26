@@ -4,7 +4,7 @@ import equipment.groups.VibrationTrainingEquipment;
 
 public class HypersphereEquipment extends VibrationTrainingEquipment {
 
-    public void defineTypeString(){
+    public void defineTypeField(){
         this.type = "Hypersphere";
     }
 
