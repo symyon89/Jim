@@ -236,15 +236,15 @@ public class EquipmentDatabase {
         Iterator<Equipment> showEquipments = equipmentDatabase.iterator();
         while (showEquipments.hasNext()){
             Equipment temp = showEquipments.next();
-            System.out.println("");
-            System.out.print("Nume : " + temp.getName());
+            System.out.println();
+            System.out.print("Name : " + temp.getName());
             System.out.print(" Group : " + temp.getGroup());
             System.out.print(" Type : " + temp.getType());
-            System.out.print(" Data ultima verificare : " + temp.getDateLastClean());
-            System.out.print(" Interval curatare : " + temp.getCleaningInterval());
-            System.out.print(" Data ultima revizie : " + temp.getDateLastCheck());
-            System.out.print(" Interval revizie : " + temp.getMaxUsage());
-            System.out.println("");
+            System.out.print(" Date last clean : " + temp.getDateLastClean());
+            System.out.print(" Cleaning interval : " + temp.getCleaningInterval());
+            System.out.print(" Last repair : " + temp.getDateLastCheck());
+            System.out.print(" Repair intreval : " + temp.getMaxUsage());
+            System.out.println();
 
         }
     }
