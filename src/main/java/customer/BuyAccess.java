@@ -2,12 +2,12 @@ package customer;
 
 public class BuyAccess {
 
-    public Access weekAccess(){
+    public static Access weekAccess(){
         Access access;
         return access = () -> "1 week";
     }
 
-    public Access weekedAccess(){
+    public static Access weekedAccess(){
         Access access;
         return access = () -> "weekend";
     }
