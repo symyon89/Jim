@@ -56,4 +56,8 @@ public class Customer{
     public void addBalance(int balance){
         this.balance +=balance;
     }
+
+    public int getBalance() {
+        return balance;
+    }
 }
