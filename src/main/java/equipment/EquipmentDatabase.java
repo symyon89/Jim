@@ -61,10 +61,12 @@ public class EquipmentDatabase {
         equipment.setName(type.get(0));
         equipment.defineGroupField();
         equipment.defineTypeField();
-        equipment.setCleaningInterval(String.valueOf(type.get(3)));
-        equipment.setDateLastClean(type.get(4));
-        equipment.setMaxUsage(type.get(5));
-        equipment.setDateLastCheck(type.get(6));
+        equipment.setCleaningInterval(Integer.valueOf(type.get(3)));
+        LocalDate date = LocalDate.parse(type.get(4));
+        equipment.setDateLastClean(date);
+        equipment.setMaxUsage(Integer.valueOf(type.get(5)));
+        date = LocalDate.parse(type.get(6));
+        equipment.setDateLastCheck(date);
         return equipment;
     }
     private Equipment returnEquipmentVibrationTrainingType(List<String> type){
