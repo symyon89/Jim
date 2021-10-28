@@ -37,6 +37,7 @@ public class EquipmentDatabase {
             while ((rand = bf.readLine()) != null){
                 List<String> name = List.of(rand.split("`"));
                 System.out.println(name.get(1));
+
                 equipmentDatabase.add(returnEquipomentType(name));
             }
             reader.close();
@@ -46,7 +47,7 @@ public class EquipmentDatabase {
     }
 
     private Equipment returnEquipomentType(List<String> type) {
-        EllipticastAndCrossTrainerEquipment equipment;
+        Equipment equipment;
         switch (type.get(1)){
             case "Elipticas & Cross Trainers" : equipment = new EllipticastAndCrossTrainerEquipment();
             case "Exercise Bikes" : equipment = new ExerciseBikesEquipment();
