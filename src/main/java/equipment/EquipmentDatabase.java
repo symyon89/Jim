@@ -382,9 +382,11 @@ public class EquipmentDatabase {
         }
     }
     public void showEquipments(){
-        for (Equipment temp : equipmentDatabase) {
-            System.out.println();
-            System.out.print("Name : " + temp.getName());
+        Equipment temp;
+
+        for (int i = 0; i < equipmentDatabase.size(); i++) {
+            temp = equipmentDatabase.get(i);
+            System.out.print((i+1) + ".Name : " + temp.getName());
             System.out.print(" Group : " + temp.getGroup());
             System.out.print(" Type : " + temp.getType());
             System.out.print(" Date last clean : " + temp.getDateLastClean());
@@ -392,6 +394,24 @@ public class EquipmentDatabase {
             System.out.print(" Last repair : " + temp.getDateLastCheck());
             System.out.print(" Repair intreval : " + temp.getMaxUsage());
             System.out.println();
+        }
+    }
+    public void deleteEquipment(){
+        showEquipments();
+        if (equipmentDatabase.size() == 0 ) {
+            System.out.println("You don`t have any equipment in stock");
+        }
+        else {
+            System.out.println("Choose Equipment to delete from 1 to " + equipmentDatabase.size() + " :");
+            int positionToDelete = scannerNumber.nextInt();
+            positionToDelete--;
+            if (positionToDelete >= 0 && positionToDelete < equipmentDatabase.size()){
+                equipmentDatabase.remove(positionToDelete);
+                saveEquipments();
+                System.out.println("The product was deleted");
+            }else {
+                System.out.println("Incorect number, nothing was deleted");
+            }
         }
     }
 }
