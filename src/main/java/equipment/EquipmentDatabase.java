@@ -29,16 +29,19 @@ public class EquipmentDatabase {
     private static final String equipmentPath = "src/main/java/resources/equipments.txt";
 
     public EquipmentDatabase() {
+
         try {
             File file = new File(equipmentPath);
             FileReader reader = new FileReader(file);
             BufferedReader bf = new BufferedReader(reader);
             String rand;
-            while ((rand = bf.readLine()) != null){
+            while ((rand = bf.readLine()) != null) {
                 List<String> name = List.of(rand.split("`"));
                 equipmentDatabase.add(returnEquipmentType(name));
             }
             reader.close();
+            bf.close();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
