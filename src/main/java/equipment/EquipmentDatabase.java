@@ -26,7 +26,7 @@ public class EquipmentDatabase {
     private final List<Equipment> equipmentDatabase = new ArrayList<>();
     private final Scanner scannerText = new Scanner(System.in);
     private final Scanner scannerNumber = new Scanner(System.in);
-    private static final String equipmentPath = "C:\\Users\\Administrator\\IdeaProjects\\Jim\\src\\main\\java\\resources\\equipments.txt";
+    private static final String equipmentPath = "C:\\Users\\George\\IdeaProjects\\Jim\\src\\main\\java\\resources\\equipments.txt";
 
     public EquipmentDatabase() {
         try {
@@ -177,20 +177,16 @@ public class EquipmentDatabase {
     }
 
     private void saveEquipments() {
-        List<StringBuilder> listOfEquiopments = equipmentDatabase.stream()
+        final StringBuilder textTowrite = new StringBuilder();
+        equipmentDatabase.stream()
                 .map(equip -> {
                     StringBuilder temp = new StringBuilder();
                     temp.append(equip.getName()).append("`").append(equip.getType()).append("`").append(equip.getGroup())
                             .append("`").append(equip.getCleaningInterval()).append("`").append(equip.getDateLastClean())
                             .append("`").append(equip.getMaxUsage()).append("`").append(equip.getDateLastCheck());
                     return temp;
-                }).collect(Collectors.toList());
+                }).forEach(textLine -> textTowrite.append(textLine).append("\n"));
 
-        StringBuilder textTowrite = new StringBuilder();
-
-        for (StringBuilder equiopment : listOfEquiopments) {
-            textTowrite.append(equiopment).append("\n");
-        }
 
         try {
             FileWriter saveEquiopments = new FileWriter(equipmentPath);
