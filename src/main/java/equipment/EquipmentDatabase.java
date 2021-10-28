@@ -13,16 +13,50 @@ import equipment.vibrationtrainingtypes.HypersphereEquipment;
 import equipment.vibrationtrainingtypes.PersonalPowerPlatesEquipment;
 import equipment.vibrationtrainingtypes.Vyper2Equipment;
 
+
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class EquipmentDatabase {
     private final List<Equipment> equipmentDatabase = new ArrayList<>();
     private final Scanner scannerText = new Scanner(System.in);
     private final Scanner scannerNumber = new Scanner(System.in);
+    private static final String equipmentPath = "C:\\Users\\Administrator\\IdeaProjects\\Jim\\src\\main\\java\\resources\\equipments.txt";
+
+    public EquipmentDatabase() {
+        try {
+            File file = new File(equipmentPath);
+            FileReader reader = new FileReader(file);
+            BufferedReader bf = new BufferedReader(reader);
+            String rand;
+            while ((rand = bf.readLine()) != null){
+                List<String> name = List.of(rand.split("`"));
+                System.out.println(name.get(1));
+                equipmentDatabase.add(returnEquipomentType(name));
+            }
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Equipment returnEquipomentType(List<String> type) {
+        EllipticastAndCrossTrainerEquipment equipment;
+        switch (type.get(1)){
+            case "Elipticas & Cross Trainers" :
+                equipment = new EllipticastAndCrossTrainerEquipment();
+            default:
+                equipment = new EllipticastAndCrossTrainerEquipment();
+
+        }
+
+        return equipment;
+    }
 
     public void menuInsertEquipment() {
         int option;
@@ -51,9 +85,35 @@ public class EquipmentDatabase {
             case 3 -> groupTrainingTypeMenu();
             case 4 -> strenghtTypeMenu();
             case 5 -> vibrationTrainingTypeMenu();
-            case 6 -> System.out.println("Ai iesit din meniu");
+            case 6 -> saveEquipments();
             default -> System.out.println("Invalid option!");
         }
+    }
+
+    private void saveEquipments() {
+        List<StringBuilder> listOfEquiopments = equipmentDatabase.stream()
+                .map(equip -> {
+                    StringBuilder temp = new StringBuilder();
+                    temp.append(equip.getName()).append("`").append(equip.getType()).append("`").append(equip.getGroup())
+                            .append("`").append(equip.getCleaningInterval()).append("`").append(equip.getDateLastClean())
+                            .append("`").append(equip.getMaxUsage()).append("`").append(equip.getDateLastCheck());
+                    return temp;
+                }).collect(Collectors.toList());
+
+        StringBuilder textTowrite = new StringBuilder();
+
+        for (StringBuilder equiopment : listOfEquiopments) {
+            textTowrite.append(equiopment).append("\n");
+        }
+
+        try {
+            FileWriter saveEquiopments = new FileWriter(equipmentPath);
+            saveEquiopments.write(String.valueOf(textTowrite));
+            saveEquiopments.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void cardioTypeMenu() {

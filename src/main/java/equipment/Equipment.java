@@ -12,6 +12,19 @@ public abstract class Equipment {
    private LocalDate dateLastClean;
    private int cleaningInterval;
 
+    public Equipment(String name, String group, String type, LocalDate dateLastCheck, int maxUsage, LocalDate dateLastClean, int cleaningInterval) {
+        this.name = name;
+        this.group = group;
+        this.type = type;
+        this.dateLastCheck = dateLastCheck;
+        this.maxUsage = maxUsage;
+        this.dateLastClean = dateLastClean;
+        this.cleaningInterval = cleaningInterval;
+    }
+
+    public Equipment() {
+    }
+
     public boolean returnTrueIfNeedsCleaning(){
         LocalDate now =LocalDate.now();
         LocalDate dateToClean = dateLastClean.plusDays(cleaningInterval);
