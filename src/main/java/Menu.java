@@ -3,7 +3,7 @@ import equipment.EquipmentDatabase;
 import java.util.Scanner;
 
 public class Menu {
-    private EquipmentDatabase equipmentDatabase;
+    private final EquipmentDatabase equipmentDatabase;
     private final Scanner scannerNumber = new Scanner(System.in);
 
     public Menu() {

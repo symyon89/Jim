@@ -17,10 +17,8 @@ import equipment.vibrationtrainingtypes.Vyper2Equipment;
 import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class EquipmentDatabase {
     private final List<Equipment> equipmentDatabase = new ArrayList<>();
@@ -49,100 +47,106 @@ public class EquipmentDatabase {
 
     private Equipment returnEquipmentType(List<String> type) {
         Equipment equipment;
-        switch (type.get(2)){
-            case "Cardio" : equipment = returnEquipmentCardioType(type);break;
-            case "Flooring" : equipment = returnEquipmentFlooringType(type);break;
-            case "Group Training" : equipment = returnEquipmentGroupTrainingType(type);break;
-            case "Strenght" : equipment = returnEquipmentStrenghtType(type);break;
-            case "Vibration Training" : equipment = returnEquipmentVibrationTrainingType(type);break;
-            default:
+        switch (type.get(2)) {
+            case "Cardio" -> equipment = returnEquipmentCardioType(type);
+            case "Flooring" -> equipment = returnEquipmentFlooringType(type);
+            case "Group Training" -> equipment = returnEquipmentGroupTrainingType(type);
+            case "Strenght" -> equipment = returnEquipmentStrenghtType(type);
+            case "Vibration Training" -> equipment = returnEquipmentVibrationTrainingType(type);
+            default -> {
                 System.out.println("Group not found");
                 equipment = new EllipticastAndCrossTrainerEquipment();
+            }
         }
         equipment.setName(type.get(0));
         equipment.defineGroupField();
         equipment.defineTypeField();
-        equipment.setCleaningInterval(Integer.valueOf(type.get(3)));
+        equipment.setCleaningInterval(Integer.parseInt(type.get(3)));
         LocalDate date = LocalDate.parse(type.get(4));
         equipment.setDateLastClean(date);
-        equipment.setMaxUsage(Integer.valueOf(type.get(5)));
+        equipment.setMaxUsage(Integer.parseInt(type.get(5)));
         date = LocalDate.parse(type.get(6));
         equipment.setDateLastCheck(date);
         return equipment;
     }
     private Equipment returnEquipmentVibrationTrainingType(List<String> type){
         Equipment equipment;
-        switch (type.get(1)){
-            case "Hypersphere" : equipment = new HypersphereEquipment();break;
-            case "PersonalPower" : equipment = new PersonalPowerPlatesEquipment();break;
-            case "Vyper 2" : equipment = new Vyper2Equipment();break;
-            default:
+        switch (type.get(1)) {
+            case "Hypersphere" -> equipment = new HypersphereEquipment();
+            case "PersonalPower" -> equipment = new PersonalPowerPlatesEquipment();
+            case "Vyper 2" -> equipment = new Vyper2Equipment();
+            default -> {
                 System.out.println("Type not found");
                 equipment = new HypersphereEquipment();
+            }
         }
         return equipment;
     }
 
     private Equipment returnEquipmentStrenghtType(List<String> type){
         Equipment equipment;
-        switch (type.get(1)){
-            case "Bars" : equipment = new BarsEqupment();break;
-            case "Benches" : equipment = new BenchesEquipment();break;
-            case "Cybex" : equipment = new CybexEquipment();break;
-            case "Dumbells" : equipment = new DumbellsEquipment();break;
-            case "Free Weights" : equipment = new FreeWeightsEquipment();break;
-            case "Functional Trainers" : equipment = new FunctionalTrainersEquipment();break;
-            case "Pilates" : equipment = new PilatesEquipment();break;
-            case "Plates" : equipment = new PlatesEquipment();break;
-            case "Selectorized" : equipment = new SelectorizedEquipment();break;
-            case "Storeage Racks" : equipment = new StoreageRacksEquipment();break;
-            default:
+        switch (type.get(1)) {
+            case "Bars" -> equipment = new BarsEqupment();
+            case "Benches" -> equipment = new BenchesEquipment();
+            case "Cybex" -> equipment = new CybexEquipment();
+            case "Dumbells" -> equipment = new DumbellsEquipment();
+            case "Free Weights" -> equipment = new FreeWeightsEquipment();
+            case "Functional Trainers" -> equipment = new FunctionalTrainersEquipment();
+            case "Pilates" -> equipment = new PilatesEquipment();
+            case "Plates" -> equipment = new PlatesEquipment();
+            case "Selectorized" -> equipment = new SelectorizedEquipment();
+            case "Storeage Racks" -> equipment = new StoreageRacksEquipment();
+            default -> {
                 System.out.println("Type not found");
                 equipment = new BarsEqupment();
+            }
         }
         return equipment;
     }
 
     private Equipment returnEquipmentGroupTrainingType(List<String> type){
         Equipment equipment;
-        switch (type.get(1)){
-            case "Group Cycling" : equipment = new GroupCyclingEquipment();break;
-            case "Group Functional" : equipment = new GroupFunctionalEquipment();break;
-            case "Hiit" : equipment = new HiitEquipment();break;
-            case "Rowers" : equipment = new RowersEquipment();break;
-            default:
+        switch (type.get(1)) {
+            case "Group Cycling" -> equipment = new GroupCyclingEquipment();
+            case "Group Functional" -> equipment = new GroupFunctionalEquipment();
+            case "Hiit" -> equipment = new HiitEquipment();
+            case "Rowers" -> equipment = new RowersEquipment();
+            default -> {
                 System.out.println("Type not found");
                 equipment = new GroupCyclingEquipment();
+            }
         }
         return equipment;
     }
 
     private Equipment returnEquipmentFlooringType(List<String> type){
         Equipment equipment;
-        switch (type.get(1)){
-            case "Flooring Mats" : equipment = new FlooringMatsEquipment();break;
-            case "Interlocking" : equipment = new InterlockingEquipment();break;
-            default:
+        switch (type.get(1)) {
+            case "Flooring Mats" -> equipment = new FlooringMatsEquipment();
+            case "Interlocking" -> equipment = new InterlockingEquipment();
+            default -> {
                 System.out.println("Type not found");
                 equipment = new FlooringMatsEquipment();
+            }
         }
         return equipment;
     }
 
     private Equipment returnEquipmentCardioType(List<String> type){
         Equipment equipment;
-        switch (type.get(1)){
-            case "Elipticas & Cross Trainers" : equipment = new EllipticastAndCrossTrainerEquipment();break;
-            case "Exercise Bikes" : equipment = new ExerciseBikesEquipment();break;
-            case "Indoor Cycles" : equipment = new IndoorCyclesEquipment();break;
-            case "Recumbent Bikes" : equipment = new RecumbentBikesEquipment();break;
-            case "Rowing Machine" : equipment = new RowingMachineEquipment();break;
-            case "Stair Climbers And Steppers" : equipment = new StairClimbersAndSteppersEquipment();break;
-            case "Treadmill" : equipment = new TreadmillEquipment();break;
-            case "Upright Bike" : equipment = new UprightBikeEquipment();break;
-            default:
+        switch (type.get(1)) {
+            case "Elipticas & Cross Trainers" -> equipment = new EllipticastAndCrossTrainerEquipment();
+            case "Exercise Bikes" -> equipment = new ExerciseBikesEquipment();
+            case "Indoor Cycles" -> equipment = new IndoorCyclesEquipment();
+            case "Recumbent Bikes" -> equipment = new RecumbentBikesEquipment();
+            case "Rowing Machine" -> equipment = new RowingMachineEquipment();
+            case "Stair Climbers And Steppers" -> equipment = new StairClimbersAndSteppersEquipment();
+            case "Treadmill" -> equipment = new TreadmillEquipment();
+            case "Upright Bike" -> equipment = new UprightBikeEquipment();
+            default -> {
                 System.out.println("Type not found");
                 equipment = new EllipticastAndCrossTrainerEquipment();
+            }
         }
         return equipment;
     }
@@ -378,9 +382,7 @@ public class EquipmentDatabase {
         }
     }
     public void showEquipments(){
-        Iterator<Equipment> showEquipments = equipmentDatabase.iterator();
-        while (showEquipments.hasNext()){
-            Equipment temp = showEquipments.next();
+        for (Equipment temp : equipmentDatabase) {
             System.out.println();
             System.out.print("Name : " + temp.getName());
             System.out.print(" Group : " + temp.getGroup());
