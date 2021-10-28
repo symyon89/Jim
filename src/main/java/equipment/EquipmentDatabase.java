@@ -36,8 +36,6 @@ public class EquipmentDatabase {
             String rand;
             while ((rand = bf.readLine()) != null){
                 List<String> name = List.of(rand.split("`"));
-                System.out.println(name.get(1));
-
                 equipmentDatabase.add(returnEquipmentType(name));
             }
             reader.close();
