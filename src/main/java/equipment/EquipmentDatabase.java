@@ -26,7 +26,7 @@ public class EquipmentDatabase {
     private final List<Equipment> equipmentDatabase = new ArrayList<>();
     private final Scanner scannerText = new Scanner(System.in);
     private final Scanner scannerNumber = new Scanner(System.in);
-    private static final String equipmentPath = "C:\\Users\\George\\IdeaProjects\\Jim\\src\\main\\java\\resources\\equipments.txt";
+    private static final String equipmentPath = "src/main/java/resources/equipments.txt";
 
     public EquipmentDatabase() {
         try {
@@ -387,7 +387,6 @@ public class EquipmentDatabase {
             System.out.print(" Last repair : " + temp.getDateLastCheck());
             System.out.print(" Repair intreval : " + temp.getMaxUsage());
             System.out.println();
-
         }
     }
 }
