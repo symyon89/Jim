@@ -48,11 +48,16 @@ public class EquipmentDatabase {
     private Equipment returnEquipomentType(List<String> type) {
         EllipticastAndCrossTrainerEquipment equipment;
         switch (type.get(1)){
-            case "Elipticas & Cross Trainers" :
-                equipment = new EllipticastAndCrossTrainerEquipment();
+            case "Elipticas & Cross Trainers" : equipment = new EllipticastAndCrossTrainerEquipment();
+            case "Exercise Bikes" : equipment = new ExerciseBikesEquipment();
+            case "Indoor Cycles" : equipment = new IndoorCyclesEquipment();
+            case "Recumbent Bikes" : equipment = new RecumbentBikesEquipment();
+            case "Rowing Machine" : equipment = new RowingMachineEquipment();
+            case "Stair Climbers And Steppers" : equipment = new StairClimbersAndSteppersEquipment();
+            case "Treadmill" : equipment = new TreadmillEquipment();
+            case "Upright Bike" : equipment = new UprightBikeEquipment();
             default:
                 equipment = new EllipticastAndCrossTrainerEquipment();
-
         }
 
         return equipment;
