@@ -393,6 +393,8 @@ public class EquipmentDatabase {
             System.out.print(" Cleaning interval : " + temp.getCleaningInterval());
             System.out.print(" Last repair : " + temp.getDateLastCheck());
             System.out.print(" Repair intreval : " + temp.getMaxUsage());
+            System.out.print(" Trebuie curatat? : " + temp.returnTrueIfNeedsCleaning());
+            System.out.print(" Trebuie reparat? : " + temp.returnTrueIfNeedsRepairs());
             System.out.println();
         }
     }
